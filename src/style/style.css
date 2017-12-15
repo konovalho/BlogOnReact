@@ -1,0 +1,255 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+  font-family: Roboto;
+}
+*:focus {
+	outline: none;
+}
+a {
+	text-decoration: none;
+
+}
+html {
+  font-size: 2.2vw;
+  line-height: 1.2;
+  background-color: #fff;
+}
+.main-body {
+	font-family: "Roboto", "Tahoma", sans-serif;
+	font-weight: 400;
+	width: 100%;
+	overflow-x: hidden;
+  max-width: 1920px;
+  min-width: 315px;
+  background-color: #244b69;
+  margin: 0 auto;
+  background-image: url(../img/credits-background.jpg);
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  height: 100vh;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 90%;
+  }
+}
+
+.site-title {
+	font-weight: 300;
+	font-size: 30px;
+	text-align: center;
+	margin-bottom: 30px;
+	color: rgba(255,255,255, 0.9);
+}
+.site-flex {
+	display: flex;
+}
+.site-left {
+	width: 47.5%;
+	margin-right: 5%;
+	flex-shrink: 0;
+	background-color: #fff;
+}
+.main-form {
+	color: rgba(10,30,50,0.9);
+	padding: 15px;
+}
+.main-form__title {
+	font-size: 30px;
+	margin-bottom: 30px;
+}
+.form-flex {
+	display: flex;
+	flex-wrap: wrap;
+}
+.form-flex__item {
+	width: 100%;
+	margin: 0% 1%;
+}
+.form-flex__item label {
+	width: 200px;
+	text-align: right;
+	display: inline-block;
+	font-size: 17px;
+	position: relative;
+	line-height: 20px;
+	margin-right: 20px;
+}
+.form-flex__item input {
+	border: none;
+	border-bottom: 1px solid rgba(10,30,50,0.9);
+	display: inline-block;
+	width: 290px;
+	font-size: 17px;
+	line-height: 20px;
+	padding-bottom: 10px;
+}
+.form-flex__item select {
+	border: none;
+	border-bottom: 1px solid rgba(10,30,50,0.9);
+	display: inline-block;
+	width: 290px;
+	font-size: 17px;
+	line-height: 20px;
+	padding-bottom: 10px;
+}
+.form-flex__item label::after {
+	content: '';
+	display: none;
+	position: absolute;
+	top: 0;
+	right: -320px;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	background-color: #63c206;
+}
+.form-flex__item label::before {
+	content: '';
+	display: none;
+	position: absolute;
+	top: 2px;
+	right: -312px;
+	width: 8px;
+	height: 15px;
+	border-right: 2px solid white;
+	border-bottom: 2px solid white;
+	z-index: 22;
+	transform: rotate(45deg);
+}
+.form-flex__item.fail input {
+	border-bottom: 1px solid #f54040;
+}
+.form-flex__item.success input {
+	border-bottom: 1px solid #63c206;
+}
+.form-flex__item.success label::after {
+	display: block;
+}
+.form-flex__item.success label::before {
+	display: block;
+}
+.form-flex__validation {
+	font-size: 14px;
+	line-height: 17px;
+	margin-left: 220px;
+	width: 290px;
+	color: #f54040;
+	margin-top: 10px;
+	display: none;
+}
+.form-flex__item.fail .form-flex__validation {
+	display: block;
+}
+/*.form-flex__item select {
+	border: none;
+	border-bottom: 1px solid rgba(10,30,50,0.9);
+	display: inline-block;
+	width: 290px;
+	font-size: 17px;
+	line-height: 20px;
+	padding-bottom: 10px;
+	padding: 2px 10px;
+	background-color: transparent;
+	border-radius: 0px !important;
+	appearance:none;
+	margin: 0px 4px;
+	text-align: center;
+  -moz-appearance:none; 
+  -webkit-appearance:none;
+}*/
+.form-flex__item--select {
+	display: flex;
+	padding: 15px 0px;
+	padding-top: 25px;
+}
+.form-flex__item--select label {
+	width: 200px;
+	text-align: right;
+	display: inline-block;
+	font-size: 17px;
+	line-height: 20px;
+	margin-right: 20px;
+}
+.form-flex__item-date {
+	display: flex;
+	width: 290px;
+}
+.form-flex__item-date select {
+	border: none;
+	border-bottom: 1px solid rgba(10,30,50,0.9);
+	display: inline-block;
+	width: 30%;
+	font-size: 17px;
+	line-height: 20px;
+	padding-bottom: 10px;
+	padding: 2px 10px;
+	background-color: transparent;
+	border-radius: 0px !important;
+	appearance:none;
+	margin: 0px 1.5%;
+	text-align: center;
+  -moz-appearance:none; /* Firefox */
+  -webkit-appearance:none; /* Safari and Chrome */
+}
+
+/*Отображение*/
+
+
+.site-right {
+	width: 47.5%;
+	background-color: #fff;
+}
+.main-blank {
+	padding: 15px;
+	background-color: rgba(10,30,50,0.9);
+	color: #fff;
+}
+.main-blank__title {
+	font-size: 30px;
+	margin-bottom: 30px;
+}
+.blank-flex {
+	display: flex;
+	flex-wrap: wrap;
+}
+.main-blank__item {
+	width: 100%;
+}
+.main-blank__item-title {
+	width: 200px;
+	text-align: left;
+	display: inline-block;
+	font-size: 17px;
+	line-height: 20px;
+	margin-right: 20px;
+	text-transform: uppercase;
+	color: #f54040;
+}
+.main-blank__item-value {
+	border-bottom: 1px solid #f54040;
+	display: inline-block;
+	width: 250px;
+	font-size: 17px;
+	line-height: 17px;
+	min-height: 30px;
+	overflow: hidden;
+}
