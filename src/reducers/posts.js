@@ -1,6 +1,6 @@
 const post = (state, action) => {
     return {
-      id: state.lenght,
+      id: state.length,
       text: action.text
     }
 }
