@@ -16,5 +16,6 @@ store.subscribe(() => {
 console.log(store.dispatch);
 ReactDOM.render(<Provider store={store}>
     <App />
-  </Provider>, document.getElementById('root'));
+  </Provider>, document.getElementById('root'))
+  module.hot.accept();
 registerServiceWorker();

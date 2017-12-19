@@ -1,6 +1,13 @@
 const post = (state, action) => {
+  let id;
+  if(state.length > 0) {
+    id = state[state.length-1].id + 1;
+  }
+  else {
+    id = 0;
+  }
     return {
-      id: state.length,
+      id: id,
       text: action.text
     }
 }
