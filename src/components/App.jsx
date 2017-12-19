@@ -1,14 +1,20 @@
 ﻿import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import MainContainer from '../Containers/MainContainer';
+import InputContainer from '../Containers/InputContainer';
+import DisplayContainer from '../Containers/DisplayContainer';
+import SearchContainer from '../Containers/SearchContainer';
 
 class App extends Component {
   render() {
     return (
       <div className="">
-      приложуха
+      приложуха ура!!
       <br />
-      <MainContainer />
+      <SearchContainer />
+      <br />
+      <InputContainer />
+      <br />
+      <DisplayContainer />
       </div>
     );
   }

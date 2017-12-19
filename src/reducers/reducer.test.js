@@ -1,6 +1,8 @@
 import { createStore } from 'redux';
 import blogApp from './index';
 import {addPost} from '../actions/index';
+import {removePost} from '../actions/index';
+
 
 describe('Reducer test', ()=> {
 	it('should correct object', ()=> {
@@ -47,4 +49,23 @@ describe('from dispatch to Reducer test', ()=> {
 		}
 		expect(store.getState()).toEqual(myStore);
 	});
+})
+
+describe('Remove post testing', ()=> {
+	it('should remove post', ()=> {
+		let store = createStore(blogApp);
+		store.dispatch(addPost('Anna'));
+		store.dispatch(addPost('Roman'));
+		let myStore = {
+			posts: [
+				{
+					id: 0,
+					text: 'Anna'
+				}
+			],
+			visibilityFilter: ''
+		}
+		store.dispatch(removePost(1));
+		expect(store.getState()).toEqual(myStore);
+	})
 })
