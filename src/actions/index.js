@@ -12,6 +12,14 @@ export const removePost = (id) => {
   };
 };
 
+export const editPost = (id, text) => {
+  return {
+    type: 'EDIT__POST',
+    id,
+    text
+  };
+};
+
 export const setVisibilityFilter = (filter) => {
   return {
     type: 'SET_VISIBILITY_FILTER',

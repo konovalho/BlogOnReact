@@ -2,6 +2,7 @@ import { createStore } from 'redux';
 import blogApp from './index';
 import {addPost} from '../actions/index';
 import {removePost} from '../actions/index';
+import {editPost} from '../actions/index';
 
 
 describe('Reducer test', ()=> {
@@ -66,6 +67,24 @@ describe('Remove post testing', ()=> {
       visibilityFilter: ''
     };
     store.dispatch(removePost(1));
+    expect(store.getState()).toEqual(myStore);
+  });
+});
+
+describe('Edit post testing', ()=> {
+  it('should edit post', ()=> {
+    let store = createStore(blogApp);
+    store.dispatch(addPost('Anna'));
+    let myStore = {
+      posts: [
+        {
+          id: 0,
+          text: 'Artem'
+        }
+      ],
+      visibilityFilter: ''
+    };
+    store.dispatch(editPost(0, 'Artem'));
     expect(store.getState()).toEqual(myStore);
   });
 });

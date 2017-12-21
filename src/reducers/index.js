@@ -1,13 +1,10 @@
+import { combineReducers } from 'redux';
 import posts from './posts';
 import visibilityFilter from './visibilityFilter';
 
-
-
-const blogApp = (state, action) => {
-  return {
-    posts: posts(state.posts, action),
-    visibilityFilter: visibilityFilter(state.visibilityFilter, action)
-  };
-};
+const blogApp = combineReducers({
+  posts,
+  visibilityFilter
+});
 
 export default blogApp;
