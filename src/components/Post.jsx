@@ -1,21 +1,19 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class Post extends Component {
+class Post extends React.Component {
   constructor() {
     super();
-    this.onRemovePost = this.onRemovePost.bind(this);
   }
-  onRemovePost() {
-  	console.log('post работает');
-  	const {onRemovePost} = this.props;
-  	onRemovePost();
+  handleRemovePost = () => {
+    const {removePost} = this.props;
+    removePost();
   }
   render() {
     return (
       <div className="post">
-      {this.props.children}
-      <button onClick={this.onRemovePost}>removes</button>
+        {this.props.children}
+        <button onClick={this.handleRemovePost}>removes</button>
       </div>
     );
   }
@@ -23,6 +21,6 @@ class Post extends Component {
 
 Post.propTypes = {
   name: PropTypes.string,
-}
+};
 
 export default Post;
