@@ -7,15 +7,21 @@ import App from './components/App';
 import {updateLocalStorage} from './Util/updateLocalStorage';
 import registerServiceWorker from './registerServiceWorker';
 
-let store = createStore(blogApp,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const localFields = JSON.parse(localStorage.getItem('filds'));
+const initialState = localFields ? localFields : undefined;
+
+const store = createStore(blogApp, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 //Подпишимся на обновления стора чтобы обновлять локал сторадж
 store.subscribe(() => {
-	updateLocalStorage(store.getState());
-})
-console.log(store.dispatch);
-ReactDOM.render(<Provider store={store}>
+  updateLocalStorage(store.getState());
+});
+
+ReactDOM.render(
+  <Provider store={store}>
     <App />
-  </Provider>, document.getElementById('root'))
-  module.hot.accept();
+  </Provider>,
+  document.getElementById('root')
+);
+
 registerServiceWorker();
