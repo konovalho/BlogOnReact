@@ -17,12 +17,18 @@ class SearchContainer extends React.Component {
         <form >
           <h4 style={{'margin': '0px'}}>Поиск</h4>
           <input
-            onChange={this.handleChangeFilter}/>
+            onChange={this.handleChangeFilter}
+            value={this.props.filterValue}/>
         </form>
       </div>
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    filterValue: state.visibilityFilter
+  };
+};
 
 const mapDispatchProps = (dispatch) => {
   return {
@@ -32,4 +38,4 @@ const mapDispatchProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchProps)(SearchContainer);
+export default connect(mapStateToProps, mapDispatchProps)(SearchContainer);

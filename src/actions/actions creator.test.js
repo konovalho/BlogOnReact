@@ -7,6 +7,6 @@ describe('actions', ()=> {
       type: 'ADD_POST',
       text
     };
-    expect(actions.addPost('artem')).toEqual(expectedAction)
+    expect(actions.addPost('artem')).toEqual(expectedAction);
   });
 });
