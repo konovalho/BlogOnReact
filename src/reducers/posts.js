@@ -10,18 +10,15 @@ const posts = (state = [], action) => {
       ...state,
       post(state, action)
     ];
-    break;
   case 'REMOVE_POST':
     return state.filter(item => item.id !== action.id);
-    break;
   case 'EDIT__POST':
     return state.map(item => {
-      if(item.id === action.id) {
-        item.text = action.text;
+      if (item.id === action.id) {
+        return { ...item, text: action.text };
       }
       return item;
-    })
-    break;
+    });
   default: return state;
   }
 };

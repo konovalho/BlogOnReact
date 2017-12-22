@@ -5,7 +5,6 @@ import { createStore } from 'redux';
 import blogApp from './reducers/index';
 import App from './components/App';
 import {updateLocalStorage} from './Util/updateLocalStorage';
-import registerServiceWorker from './registerServiceWorker';
 
 const localFields = JSON.parse(localStorage.getItem('filds'));
 const initialState = localFields ? localFields : undefined;

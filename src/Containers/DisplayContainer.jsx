@@ -8,13 +8,14 @@ import {filterItems} from '../Util/filterItems';
 class DisplayContainer extends React.Component {
   createList() {
     const {postList, removePost, editPost} = this.props;
-    return postList.map((item, index) =>
+    console.log(postList);
+    return postList.map(({ id, text }) =>
       <Post
-        key={index}
-        removePost={removePost.bind(null, item.id)}
-        editPost={editPost.bind(null, item.id)}
+        key={id}
+        removePost={removePost.bind(null, id)}
+        editPost={editPost.bind(null, id)}
+        value={text}
       >
-        {item.text}
       </Post>
     );
   }
@@ -31,6 +32,7 @@ class DisplayContainer extends React.Component {
 const mapStateToProps = (state) => {
   const filter = state.visibilityFilter;
   const posts = state.posts;
+  console.log(posts);
   return {
     postList: filterItems(posts, filter)
   };
