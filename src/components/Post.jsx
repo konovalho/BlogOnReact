@@ -2,37 +2,44 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class Post extends React.Component {
-  constructor() {
-    super();
-  }
   handleRemovePost = () => {
     const {removePost} = this.props;
     removePost();
   }
-  handleInputDisplay = () => {
-    this.formEdit.style = {'display': 'block'};
-  }
   formEditRef = (ref) => {
     this.formEdit = ref;
   };
-  handleEditPost = (e) => {
-    const value = e.target.firstElementChild.value;
+  handleInputDisplay = () => {
+    this.formEdit.readOnly = false;
+    this.formEdit.style.border = '1px solid #999';
+  }
+  handleEditPost = (value) => {
     this.props.editPost(value);
-    this.formEdit.style = {'display': 'none'};
+  }
+  handleReadonblyInput = (e) => {
+    const value = e.target.value;
+    this.formEdit.readOnly = true;
+    this.formEdit.style.border = 'none';
+    this.handleEditPost(value);
+  }
+  handleKeyUp = (e) => {
+    if(e.keyCode === 13){
+      e.preventDefault;
+      this.handleReadonblyInput(e);
+    }
   }
   render() {
     return (
       <div className="post">
-        <span onClick={this.handleInputDisplay}>
-          {this.props.children}
-        </span>
-        <form
-          style={{'display': 'none'}}
+        <input
+          style={{'border': 'none'}}
+          onDoubleClick={this.handleInputDisplay}
           ref={this.formEditRef}
-          onSubmit={this.handleEditPost}
-        >
-          <input />
-        </form>
+          readOnly={true}
+          defaultValue={this.props.children}
+          onBlur={this.handleReadonblyInput}
+          onKeyUp={this.handleKeyUp}
+        />
         <button onClick={this.handleRemovePost}>removes</button>
       </div>
     );
